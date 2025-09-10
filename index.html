@@ -12,7 +12,7 @@
     }
     body {
       font-family: 'Arial', sans-serif;
-      background:url('bg/5179776.jpg') no-repeat center center fixed;
+      background:url('rsc/bg.jpg') no-repeat center center fixed;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -72,11 +72,15 @@
       gap: 25px;
       margin-bottom: 30px;
     }
-
+    .center {
+      width: 100%;
+      padding: 10px;
+      margin: auto;
+    }
     .player-card {
       background: rgba(255, 255, 255, 0.15);
       border-radius: 15px;
-      padding: 20px;
+      padding: 00px;
       text-align: center;
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.2);
@@ -84,7 +88,12 @@
       position: relative;
       overflow: hidden;
     }
-
+    .non-player-card {
+      grid-column: span 3;
+    }
+    .trophy-card {
+      grid-column: span 1;
+    }
     .player-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
@@ -95,10 +104,11 @@
       grid-column: span 1;
       background: rgba(255, 215, 0, 0.2);
       border: 2px solid rgba(255, 215, 0, 0.5);
-      transform: scale(1.05);
+      /*transform: scale(1.05);*/
     }
 
     .player-card.vice-captain {
+      grid-column: span 1;
       background: rgba(192, 192, 192, 0.2);
       border: 2px solid rgba(192, 192, 192, 0.5);
     }
@@ -123,14 +133,15 @@
     }
 
     .player-image img {
-	  width:300px;
+	    width:300px;
       height:300px;
       object-fit: cover;
       border-radius: 0%;
     }
 
     .player-name {
-      font-size: 1.1rem;
+      padding: 10px;
+      font-size: 1.9rem;
       font-weight: 700;
       color: white;
       text-transform: uppercase;
@@ -139,11 +150,12 @@
     }
 
     .captain .player-name {
-      font-size: 1.3rem;
+      font-size: 1.9rem;
+      padding: 10px;
     }
 
     .player-role {
-      font-size: 0.9rem;
+      font-size: 1.1rem;
       color: rgba(255, 255, 255, 0.8);
       font-weight: 500;
       text-transform: uppercase;
@@ -215,7 +227,7 @@
       }
 
       .player-card.captain {
-        grid-column: span 1;
+        grid-column: span 2;
         transform: scale(1.02);
       }
 
@@ -230,35 +242,50 @@
 </head>
 <body>
   <div class="squad-container">
-    <div class="team-logo">
+    <!--div class="team-logo">
       <div class="logo-text">POLICE<br>XI</div>
-    </div>
+    </div-->
 
-    <header class="header">
+    <!--header class="header">
       <h1 class="team-name">Police XI Blue</h1>
       <p class="tournament-info">T20 Squad 2025</p>
-    </header>
+    </header-->
 
+    <span>
     <div class="squad-grid" id="squadGrid">
+      <!--div>
+        <h1 class="team-name">Police XI Blue - <p class="tournament-info">T20 Squad 2025</p></h1>
+      </div-->
+
+      <div class="non-player-card player center">
+        <h1 class="team-name non-player-card">Police XI Blue </h1>
+        <p class="tournament-info">T20 Squad 2025</p>
+      </div>
+      <div class="trophy-card player">
+        <div class="player-image">
+          <img src="rsc/trophy.png">
+        </div>
+      </div>      
       <!-- Players will be populated by JavaScript -->
     </div>
+  </span>
   </div>
 
   <script>
     const players = [
       { name: "Navi", role: "M Ball/ Bat", type: "captain" },
       { name: "H.Bajwa", role: "Bat/ Spin", type: "vice-captain" },
-      { name: "Ashu", role: "Bat/F Ball", type: "player" },
-      { name: "Shagan", role: "Bat/Wkt", type: "player" },
+      { name: "G.S.Dhindsa", role: "Bat/ M Ball", type: "player" },
+      { name: "Ashu", role: "Bat/F Ball", type: "wkt-keeper" },
+      { name: "Shagan", role: "Bat/Wkt", type: "wkt-keeper" },
       { name: "M.Sharma", role: "Bat", type: "player" },
       { name: "Rajan", role: "Bat", type: "player" },
-      { name: "Butta", role: "Spin Ball", type: "player" },
+      { name: "Buta", role: "Spin Ball", type: "player" },
       { name: "Rakesh", role: "Bat/ Spin", type: "player" },
       { name: "Mani", role: "Bat/ Spin", type: "player" },
       { name: "Aman", role: "Bat/ F Ball", type: "player" },
       { name: "Sohi", role: "Fast Ball", type: "player" },
       { name: "Khushdeep", role: "M Ball/ Bat", type: "player" },
-      { name: "G.S.Dhindsa", role: "Bat/ M Ball", type: "player" },
       { name: "Bhinder", role: "Bat/ M Ball", type: "player" },
       { name: "Tarni", role: "F Ball/ Bat", type: "player" },
       { name: "Jumbo", role: "M Ball", type: "player" }
@@ -268,19 +295,22 @@
       const card = document.createElement('div');
       card.className = `player-card ${player.type}`;
 
-      const roleAbbr = player.type === 'captain' ? 'C' : player.type === 'vice-captain' ? 'VC' : '';
+      let roleAbbr = player.type === 'captain' ? 'C' : player.type === 'vice-captain' ? 'VC' : '';
 
+      if(player.type === 'wkt-keeper'){
+        roleAbbr='WK'
+      }
       card.innerHTML = `
         ${roleAbbr ? `<div class="role-badge">${roleAbbr}</div>` : ''}
         <div class="player-image">
-          <img src="${player.name.split(' ')[0]}.png"
+          <img src="rsc/${player.name.split(' ')[0]}.png"
                alt="${player.name}"
                referrerpolicy="no-referrer">
         </div>
         <h3 class="player-name">${player.name}</h3>
-        <p class="player-role">${player.role}</p>
+        <p class="player-role"></p>
       `;
-
+      /*<h3 class="player-name">${player.name} - ${player.role}</h3>*/
       return card;
     }
 
