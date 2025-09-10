@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Team Squad Poster</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body{
+      margin:0;
+      font-family:'Inter',sans-serif;
+      background:url('bg/5179776.jpg') no-repeat center center fixed;
+      background-size:cover;
+      color:#fff;
+    }
+    .poster{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      padding:20px;
+      gap:20px;
+    }
+    .trophy{
+      position:absolute;
+      top:20px;
+      left:20px;
+      font-size:40px;
+    }
+    .captain-section{
+      border-radius:20px;
+      padding:30px;
+      text-align:center;
+      color:#fff;
+      width:100%;
+      max-width:400px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.5);
+    }
+    .captain-photo{
+      width:300px;
+      height:300px;
+      border-radius:0%;
+      border:0px solid #fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:48px;
+      font-weight:700;
+      margin:0 auto 20px;
+      color:#fff;
+      overflow:hidden;
+    }
+    .captain-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:0%;
+    }
+    .captain-name{
+      font-size:26px;
+      font-weight:700;
+      margin:10px 0;
+    }
+    .captain-role{
+      font-size:18px;
+      opacity:0.9;
+    }
+    .squad-section{
+      width:100%;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+      gap:20px;
+    }
+    .player-card{
+	background:linear-gradient(135deg,#42a5f5,#0d47a1);
+	border-radius:14px;
+	padding:0px;
+	text-align:center;
+	box-shadow:0 4px 12px rgba(0,0,0,0.25);
+	}
+	.player-photo{
+	width:200px;
+	height:200px;
+	border-radius:50%;
+	background:#1e88e5;
+	border:3px solid rgba(255,255,255,0.5);
+	margin:0 auto 10px;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	font-weight:700;
+	font-size:18px;
+	color:#fff;
+	}
+    .player-name{
+      font-size:15px;
+      font-weight:600;
+      margin:5px 0;
+    }
+    .player-role{
+      font-size:13px;
+      color:#bbdefb;
+    }
+  </style>
+</head>
+<body>
+  <div class="trophy"><img src="Trophy.png" style="width:200px;height:200px;"></div>
+  <div class="poster">
+    <!-- Captain Section -->
+    <div class="captain-section">
+      <div class="captain-photo"><img src="Navi.png" alt="Captain Navi"></div>
+      <div class="captain-name">Navi Malhans</div>
+      <div class="captain-role">Captain</div>
+    </div>
+
+    <!-- Squad Section -->
+    <div class="squad-section" id="squad"></div>
+  </div>
+
+  <script>
+    const players = [
+      {name:'Ashu', 			role:'Bat/F Ball'},
+      {name:'Shagun', 			role:'Bat/Wkt'},
+      {name:'Manhar Sharma', 	role:'Bat'},
+      {name:'Rajan', 			role:'Bat'},
+      {name:'Harpreet Bajwa', 	role:'Bat/ Spin'},
+      {name:'Buta', 			role:'Spin Ball'},
+      {name:'Rakesh ji', 		role:'Bat/ Spin'},
+      {name:'Mani', 			role:'Bat/ Spin'},
+      {name:'Aman', 			role:'Bat/ F Ball'},
+      {name:'Sohi', 			role:'Fast Ball'},
+      {name:'Khushdip', 		role:'M Ball/ Bat'},
+      {name:'GS Dhindsa', 		role:'Bat/ M Ball'},
+      {name:'Bhinder', 			role:'Bat/ M Ball'},
+      {name:'Tarni', 			role:'F Ball/ Bat'},
+      {name:'Navi', 			role:'M Ball'}
+    ];
+
+    const squadEl = document.getElementById('squad');
+
+    function createCard(p){
+      const card = document.createElement('div');
+      card.className = 'player-card';
+
+      const photo = document.createElement('img');
+      photo.className = 'player-photo';
+      const initials = p.name.split(' ').join('');
+      photo.src= initials+'.png';
+
+      const name = document.createElement('div');
+      name.className = 'player-name';
+      name.textContent = p.name;
+
+      const role = document.createElement('div');
+      role.className = 'player-role';
+      role.textContent = p.role;
+
+      card.appendChild(photo);
+      card.appendChild(name);
+      /*card.appendChild(role);*/
+      return card;
+    }
+
+    players.forEach(p=>squadEl.appendChild(createCard(p)));
+  </script>
+</body>
+</html>

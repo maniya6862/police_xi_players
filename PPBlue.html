@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Team Blue Squad - Flat Design</title>
+  <style>
+    /* Reset some default */
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #e0f0ff; /* light blue background */
+      color: #2a3e5d;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* full viewport height */
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      display: flex;
+      flex-wrap: nowrap;
+      overflow: hidden;
+    }
+
+    /* Trophy side panel */
+    .trophy-panel {
+      background: #64b5f6; /* lighter blue */
+      color: white;
+      width: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 15px;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .trophy-panel img {
+      width: 100px;
+      height: 100px;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
+    }
+    .trophy-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-align: center;
+      user-select: none;
+    }
+
+    /* Main card with players */
+    .players-panel {
+      flex: 1;
+      background: #f7faff;
+      padding: 20px 30px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .players-panel-header {
+      font-size: 1.8rem;
+      font-weight: 700;
+      border-bottom: 3px solid #64b5f6;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+      color: #2a3e5d;
+      user-select: none;
+    }
+
+    .players-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(120px,1fr));
+      grid-auto-rows: 180px;
+      gap: 15px;
+      /* make the grid not scroll horizontally */
+      overflow-x: hidden;
+    }
+
+    /* Player card standard */
+    .player-card {
+      background: #64b5f6;
+      border-radius: 12px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px 10px;
+      box-shadow: 0 4px 12px rgba(100, 181, 246, 0.45);
+      transition: transform 0.2s ease;
+    }
+    .player-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(100, 181, 246, 0.65);
+    }
+
+    .player-pic {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 3px solid white;
+      object-fit: cover;
+      margin-bottom: 10px;
+      background: #e1eefa;
+    }
+
+    .player-name {
+      font-weight: 700;
+      font-size: 1rem;
+      text-align: center;
+      margin-bottom: 5px;
+      user-select: none;
+    }
+    .player-role {
+      font-weight: 500;
+      font-size: 0.85rem;
+      color: #d1e4ff;
+      text-align: center;
+      user-select: none;
+    }
+
+    /* Captain card bigger */
+    .player-card.captain {
+      background: #1e88e5;
+      grid-row: span 2;
+      grid-column: span 1;
+      padding: 25px 15px;
+      box-shadow: 0 6px 20px rgba(30, 136, 229, 0.75);
+    }
+
+    .captain-label {
+      margin-top: 5px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #ffde59;
+      user-select: none;
+    }
+
+    /* Scrollbar styling for webkit */
+    .players-panel::-webkit-scrollbar {
+      width: 8px;
+    }
+    .players-panel::-webkit-scrollbar-track {
+      background: #f7faff;
+      border-radius: 8px;
+    }
+    .players-panel::-webkit-scrollbar-thumb {
+      background-color: #64b5f6;
+      border-radius: 8px;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+        height: auto;
+        max-height: 95vh;
+      }
+      .trophy-panel {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        padding: 20px;
+        gap: 15px;
+      }
+      .players-panel {
+        padding: 15px;
+      }
+      .players-grid {
+        grid-template-columns: repeat(auto-fill,minmax(110px,1fr));
+        grid-auto-rows: 160px;
+      }
+      .player-card.captain {
+        grid-row: span 1;
+        grid-column: span 2;
+        padding: 20px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main" aria-label="Team Blue Squad">
+    <aside class="trophy-panel" aria-label="Team Trophy">
+      <!-- Trophy image from user context: user mentioned "Use this as trophy image" but didn't share actual link, assuming a simple trophy SVG icon below -->
+      <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Trophy Icon" width="100" height="100" />
+      <div class="trophy-title">Team Blue Trophy</div>
+    </aside>
+
+    <section class="players-panel" aria-labelledby="teamBlueHeading" tabindex="0">
+      <h1 id="teamBlueHeading" class="players-panel-header">Team Blue Squad</h1>
+
+      <div class="players-grid">
+        <!-- Player cards below -->
+
+        <!-- Captain card (Navi Malhans (C)) - bigger -->
+        <article class="player-card captain" aria-label="Captain Navi Malhans, Role: Medium Ball, Batsman">
+          <img
+            class="player-pic"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Virat_Kohli_in_2018.jpg"
+            alt="Navi Malhans"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="player-name">Navi Malhans (C)</div>
+          <div class="player-role">M Ball / Bat</div>
+          <div class="captain-label">Captain</div>
+        </article>
+
+        <!-- Other players below -->
+        <!-- Using Virat Kohli pic as player pic for each as requested -->
+
+        <article class="player-card" aria-label="Ashu, Role: Bat / Fast Ball">
+          <img
+            class="player-pic"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Virat_Kohli_in_2018.jpg"
+            alt="Ashu"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="player-name">Ashu</div>
+          <div class="player-role">Bat / F Ball</div>
+        </article>
+
+        <article class="player-card" aria-label="Shagun, Role: Bat / Wicket Keeper">
+          <img
+            class="player-pic"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Virat_Kohli_in_2018.jpg"
+            alt="Shagun"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="player-name">Shagun</div>
+          <div class="player-role">Bat / Wkt</div>
+        </article>
+
+        <article class="player-card" aria-label="Manhar Sharma, Role: Batsman">
+          <img
+            class="player-pic"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Virat_Kohli_in_2018.jpg"
+            alt="Manhar Sharma"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="player-name">Manhar Sharma</div>
+          <div class="player-role">Bat</div>
+        </article>
+
+        <article class="player-card" aria-label="Rajan, Role: Batsman">
+          <img
+            class="player-pic"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Virat_Kohli_in_2018.jpg"
+            alt="Rajan"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="player-name">Rajan</div>
+          <div class="player-role">Bat</div>
+        </article>
+
+        <article class="player-card" aria-label="Harpreet Bajwa, Role: Bat / Spin">
+          <img
+            class="player-pic"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Virat_Kohli_in_2018.jpg"
+            alt="Harpreet Bajwa"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="player-name">Harpreet Bajwa</div>
+          <div class="player-role">Bat / Spin</div>
+        </article>
+
+        <article class="player-card" aria-label="Butta, Role: Spin Ball">
+          <img
+            class="player-pic"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Virat_Kohli_in_2018.jpg"
+            alt="Butta"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="player-name">Butta</div>
+          <div class="player-role">Spin Ball</div>
+        </article>
+
+        <article class="player-card" aria-label="Rakesh, Role: Bat / Spin">
+          <img
+            class="player-pic"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Virat_Kohli_in_2018.jpg"
+            alt="Rakesh"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="player-name">Rakesh</div>
+          <div class="player-role">Bat / Spin</div>
+        </article>
+
+        <article class="player-card" aria-label="Mani, Role: Bat / Spin">
+          <img
+            class="player-pic"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Virat_Kohli_in_2018.jpg"
+            alt="Mani"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="player-name">Mani</div>
+          <div class="player-role">Bat / Spin</div>
+        </article>
+
+        <article class="player-card" aria-label="Aman, Role: Bat / Fast Ball">
+          <img
+            class="player-pic"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Virat_Kohli_in_2018.jpg"
+            alt="Aman"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="player-name">Aman</div>
+          <div class="player-role">Bat / F Ball</div>
+        </article>
+
+        <article class="player-card" aria-label="Sohi, Role: Fast Ball">
+          <img
+            class="player-pic"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Virat_Kohli_in_2018.jpg"
+            alt="Sohi"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="player-name">Sohi</div>
+          <div class="player-role">Fast Ball</div>
+        </article>
+
+        <article class="player-card" aria-label="Khushdip, Role: Medium Ball / Bat">
+          <img
+            class="player-pic"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Virat_Kohli_in_2018.jpg"
+            alt="Khushdip"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="player-name">Khushdip</div>
+          <div class="player-role">M Ball / Bat</div>
+        </article>
+
+        <article class="player-card" aria-label="GS Dhindsa, Role: Bat / Medium Ball">
+          <img
+            class="player-pic"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Virat_Kohli_in_2018.jpg"
+            alt="GS Dhindsa"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="player-name">GS Dhindsa</div>
+          <div class="player-role">Bat / M Ball</div>
+        </article>
+
+        <article class="player-card" aria-label="Bhinder, Role: Bat / Medium Ball">
+          <img
+            class="player-pic"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Virat_Kohli_in_2018.jpg"
+            alt="Bhinder"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="player-name">Bhinder</div>
+          <div class="player-role">Bat / M Ball</div>
+        </article>
+
+        <article class="player-card" aria-label="Tarni, Role: Fast Ball / Bat">
+          <img
+            class="player-pic"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Virat_Kohli_in_2018.jpg"
+            alt="Tarni"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="player-name">Tarni</div>
+          <div class="player-role">F Ball / Bat</div>
+        </article>
+
+        <article class="player-card" aria-label="Jambo, Role: Medium Ball">
+          <img
+            class="player-pic"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Virat_Kohli_in_2018.jpg"
+            alt="Jambo"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="player-name">Jambo</div>
+          <div class="player-role">M Ball</div>
+        </article>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
