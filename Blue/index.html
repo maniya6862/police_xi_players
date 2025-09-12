@@ -83,7 +83,7 @@
       padding: 00px;
       text-align: center;
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 0px solid rgba(255, 255, 255, 0.2);
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
@@ -103,14 +103,14 @@
     .player-card.captain {
       grid-column: span 1;
       background: rgba(255, 215, 0, 0.2);
-      border: 2px solid rgba(255, 215, 0, 0.5);
+      border: 0px solid rgba(255, 215, 0, 0.5);
       /*transform: scale(1.05);*/
     }
 
     .player-card.vice-captain {
       grid-column: span 1;
       background: rgba(192, 192, 192, 0.2);
-      border: 2px solid rgba(192, 192, 192, 0.5);
+      border: 0px solid rgba(192, 192, 192, 0.5);
     }
 
     .player-image {
@@ -275,20 +275,20 @@
     const players = [
       { name: "Navi", role: "M Ball/ Bat", type: "captain" },
       { name: "H.Bajwa", role: "Bat/ Spin", type: "vice-captain" },
-      { name: "Rajan", role: "Bat", type: "player" },
       { name: "Aman", role: "Bat/ F Ball", type: "player" },
-      { name: "Ashu", role: "Bat/F Ball", type: "wkt-keeper" },
       { name: "Mani", role: "Bat/ Spin", type: "player" },
+      { name: "Jumbo", role: "M Ball", type: "player" },
+      { name: "Tarni", role: "F Ball/ Bat", type: "player" },
       { name: "G.S.Dhindsa", role: "Bat/ M Ball", type: "player" },
+      { name: "Rajan", role: "Bat", type: "player" },
+      { name: "Ashu", role: "Bat/F Ball", type: "wkt-keeper" },
       { name: "Buta", role: "Spin Ball", type: "player" },
       { name: "Rakesh", role: "Bat/ Spin", type: "player" },
-      { name: "Jumbo", role: "M Ball", type: "player" },
       { name: "M.Sharma", role: "Bat", type: "player" },
       { name: "Shagan", role: "Bat/Wkt", type: "wkt-keeper" },
       { name: "Sohi", role: "Fast Ball", type: "player" },
       { name: "Khushdeep", role: "M Ball/ Bat", type: "player" },
-      { name: "Bhinder", role: "Bat/ M Ball", type: "player" },
-      { name: "Tarni", role: "F Ball/ Bat", type: "player" }
+      { name: "Bhinder", role: "Bat/ M Ball", type: "player" }
     ];
 
     function createPlayerCard(player) {
