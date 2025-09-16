@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Squad Poster</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .poster-container {
+            display: flex;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .left-section {
+            flex: 2;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+        .right-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: #004d40;
+            color: #fff;
+            text-align: center;
+            position: relative; /* Needed for absolute positioning of trophy */
+        }
+        .player-card {
+            text-align: center;
+        }
+        .player-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ddd;
+        }
+        .player-card p {
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .captain-card {
+            text-align: center;
+            position: relative;
+            z-index: 2; /* Captain's image above trophy */
+            margin-bottom: -50px; /* Overlap with trophy */
+        }
+        .captain-card img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #ffc107;
+            opacity: 0.9; /* Slightly fade captain image */
+        }
+        .captain-card p {
+            margin-top: 15px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .trophy-image {
+            position: relative; /* Relative positioning within right-section */
+            width: 100%;
+            height: auto;
+            max-width: 280px; /* Adjust as needed */
+            margin-top: -100px; /* Pull trophy up to overlap with captain */
+            z-index: 1; /* Trophy below captain */
+            opacity: 0.6; /* Fade trophy image */
+            filter: grayscale(20%); /* Optional: subtle grayscale for trophy */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #004d40;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Team India Cricket Squad</h1>
+
+    <div class="poster-container">
+        <div class="right-section">
+            <div class="captain-card">
+                <img src="https://via.placeholder.com/300x300.png?text=Captain+Photo" alt="Captain's Photo">
+                <p>Rohit Sharma<br>Captain</p>
+            </div>
+            <img src="rsc/trophy.png" alt="Trophy Image" class="trophy-image">
+        </div>
+
+        <div class="left-section">
+            <div class="player-card">
+                <img src="https://via.placeholder.com/150x150.png?text=Player+1" alt="Player 1">
+                <p>Virat Kohli</p>
+            </div>
+            <div class="player-card">
+                <img src="https://via.placeholder.com/150x150.png?text=Player+2" alt="Player 2">
+                <p>Shubman Gill</p>
+            </div>
+            <div class="player-card">
+                <img src="https://via.placeholder.com/150x150.png?text=Player+3" alt="Player 3">
+                <p>Jasprit Bumrah</p>
+            </div>
+            <div class="player-card">
+                <img src="https://via.placeholder.com/150x150.png?text=Player+4" alt="Player 4">
+                <p>Hardik Pandya</p>
+            </div>
+            <div class="player-card">
+                <img src="https://via.placeholder.com/150x150.png?text=Player+5" alt="Player 5">
+                <p>KL Rahul</p>
+            </div>
+            <div class="player-card">
+                <img src="https://via.placeholder.com/150x150.png?text=Player+6" alt="Player 6">
+                <p>Ravindra Jadeja</p>
+            </div>
+            <div class="player-card">
+                <img src="https://via.placeholder.com/150x150.png?text=Player+7" alt="Player 7">
+                <p>Mohammed Shami</p>
+            </div>
+            <div class="player-card">
+                <img src="https://via.placeholder.com/150x150.png?text=Player+8" alt="Player 8">
+                <p>Suryakumar Yadav</p>
+            </div>
+            <div class="player-card">
+                <img src="https://via.placeholder.com/150x150.png?text=Player+9" alt="Player 9">
+                <p>Kuldeep Yadav</p>
+            </div>
+            <div class="player-card">
+                <img src="https://via.placeholder.com/150x150.png?text=Player+10" alt="Player 10">
+                <p>Mohammed Siraj</p>
+            </div>
+            <div class="player-card">
+                <img src="https://via.placeholder.com/150x150.png?text=Player+11" alt="Player 11">
+                <p>Shardul Thakur</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

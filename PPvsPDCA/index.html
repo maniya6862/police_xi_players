@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Police XI Blue - T20 Squad</title>
+  <title>Police XI - T20 Squad</title>
   <style>
     * {
       margin: 0;
@@ -12,7 +12,7 @@
     }
     body {
       font-family: 'Arial', sans-serif;
-      background:url('rsc/bg11.jpg') repeat center;
+      background:url('rsc/bg.png') repeat center;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -51,7 +51,7 @@
     .team-name {
       font-size: 4rem;
       font-weight: 900;
-      color: white;
+      color: black;
       text-transform: uppercase;
       letter-spacing: 2px;
       margin-bottom: 10px;
@@ -60,7 +60,7 @@
 
     .tournament-info {
       font-size: 1.8rem;
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(0, 0, 0, 0.9);
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -83,7 +83,7 @@
       padding: 00px;
       text-align: center;
       backdrop-filter: blur(10px);
-      border: 0px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
@@ -103,14 +103,14 @@
     .player-card.captain {
       grid-column: span 1;
       background: rgba(255, 215, 0, 0.2);
-      border: 0px solid rgba(255, 215, 0, 0.5);
+      border: 2px solid rgba(255, 215, 0, 0.5);
       /*transform: scale(1.05);*/
     }
 
     .player-card.vice-captain {
       grid-column: span 1;
       background: rgba(192, 192, 192, 0.2);
-      border: 0px solid rgba(192, 192, 192, 0.5);
+      border: 2px solid rgba(192, 192, 192, 0.5);
     }
 
     .player-image {
@@ -141,21 +141,21 @@
 
     .player-name {
       padding: 10px;
-      font-size: 1.3rem;
+      font-size: 1.0rem;
       font-weight: 700;
-      color: white;
+      color: black;
       text-transform: uppercase;
       margin-bottom: 8px;
       letter-spacing: 0.5px;
     }
 
     .captain .player-name {
-      font-size: 1.3rem;
+      font-size: 1.0em;
       padding: 10px;
     }
 
     .player-role {
-      font-size: 1.1rem;
+      font-size: 1.0rem;
       color: rgba(255, 255, 255, 0.8);
       font-weight: 500;
       text-transform: uppercase;
@@ -167,7 +167,7 @@
       top: 10px;
       right: 10px;
       background: rgba(255, 255, 255, 0.2);
-      color: white;
+      color: black;
       padding: 4px 8px;
       border-radius: 12px;
       font-size: 0.7rem;
@@ -200,7 +200,7 @@
     }
 
     .logo-text {
-      color: white;
+      color: black;
       font-weight: 900;
       font-size: 1.2rem;
       text-align: center;
@@ -258,8 +258,8 @@
       </div-->
 
       <div class="non-player-card player center">
-        <h1 class="team-name non-player-card">Police XI Blue</h1>
-        <p class="tournament-info">T20 Squad 2025</p>
+        <h1 class="team-name non-player-card">Police XI</h1>
+        <p class="tournament-info">T20 Squad 2025 Against PDCA</p>
       </div>
       <div class="trophy-card player">
         <div class="player-image">
