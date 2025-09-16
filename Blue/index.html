@@ -12,7 +12,7 @@
     }
     body {
       font-family: 'Arial', sans-serif;
-      background:url('rsc/bg.jpg') repeat center;
+      background:url('rsc/bg11.jpg') repeat center;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -141,7 +141,7 @@
 
     .player-name {
       padding: 10px;
-      font-size: 1.9rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: white;
       text-transform: uppercase;
@@ -150,7 +150,7 @@
     }
 
     .captain .player-name {
-      font-size: 1.9rem;
+      font-size: 1.3rem;
       padding: 10px;
     }
 
@@ -273,23 +273,23 @@
 
   <script>
     const players = [
-      { name: "Navi", role: "M Ball/ Bat", type: "captain" },
-      { name: "H.Bajwa", role: "Bat/ Spin", type: "vice-captain" },
-      { name: "Aman", role: "Bat/ F Ball", type: "player" },
-      { name: "Mani", role: "Bat/ Spin", type: "player" },
-      { name: "Jumbo", role: "M Ball", type: "player" },
-      { name: "Tarni", role: "F Ball/ Bat", type: "player" },
-      { name: "G.S.Dhindsa", role: "Bat/ M Ball", type: "player" },
-      { name: "Rajan", role: "Bat", type: "player" },
-      { name: "Ashu", role: "Bat/F Ball", type: "wkt-keeper" },
-      { name: "Buta", role: "Spin Ball", type: "player" },
-      { name: "Rakesh", role: "Bat/ Spin", type: "player" },
-      { name: "M.Sharma", role: "Bat", type: "player" },
-      { name: "Shagan", role: "Bat/Wkt", type: "wkt-keeper" },
-      { name: "Sohi", role: "Fast Ball", type: "player" },
-      { name: "Khushdeep", role: "M Ball/ Bat", type: "player" },
-      { name: "Bhinder", role: "Bat/ M Ball", type: "player" }
-    ];
+      { name: "Navi", role: "⚾🏏", type: "captain" },
+      { name: "H.Bajwa", role: "🏏⚾", type: "vice-captain" },
+      { name: "Aman", role: "🏏⚾", type: "player" },
+      { name: "Mani", role: "🏏⚾", type: "player" },
+      { name: "G.Dhindsa", role: "🏏⚾", type: "player" },
+      { name: "Rakesh", role: "🏏⚾", type: "player" },
+      { name: "Shagan", role: "🏏🧤", type: "wkt-keeper" },
+      { name: "Tarni", role: "⚾🏏", type: "player" },
+      { name: "M.Sharma", role: "🏏", type: "player" },
+      { name: "Rajan", role: "🏏", type: "player" },
+      { name: "Ashu", role: "🏏⚾🧤", type: "wkt-keeper" },
+      { name: "Buta", role: "⚾", type: "player" },
+      { name: "Jumbo", role: "⚾", type: "player" },
+      { name: "Khushdeep", role: "⚾🏏", type: "player" },
+      { name: "Bhinder", role: "🏏⚾", type: "player" },
+      { name: "Sohi", role: "⚾", type: "player" }
+  ];
 
     function createPlayerCard(player) {
       const card = document.createElement('div');
@@ -307,7 +307,7 @@
                alt="${player.name}"
                referrerpolicy="no-referrer">
         </div>
-        <h3 class="player-name">${player.name}</h3>
+        <h3 class="player-name">${player.name}  ${player.role}</h3>
         <p class="player-role"></p>
       `;
       /*<h3 class="player-name">${player.name} - ${player.role}</h3>*/
