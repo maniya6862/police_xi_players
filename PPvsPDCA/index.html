@@ -60,7 +60,7 @@
 
     .tournament-info {
       font-size: 1.8rem;
-      color: rgba(0, 0, 0, 0.9);
+      color: black;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -125,6 +125,18 @@
       /*overflow: hidden;
       border: 3px solid rgba(255, 255, 255, 0.3);*/
     }
+    .trophy-image {
+      /*width: 80px;
+      height: 80px;*/
+      border-radius: 0%;
+      /*margin: 0 auto 15px;
+      background: rgba(255, 255, 255, 0.2);*/
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /*overflow: hidden;
+      border: 3px solid rgba(255, 255, 255, 0.3);*/
+    }
 
     .captain .player-image {
       /*width: 100px;
@@ -133,6 +145,13 @@
     }
 
     .player-image img {
+	    width:300px;
+      height:300px;
+      object-fit: cover;
+      border-radius: 0%;
+      background: white;
+    }
+    .trophy-image img {
 	    width:300px;
       height:300px;
       object-fit: cover;
@@ -262,7 +281,7 @@
         <p class="tournament-info">T20 Squad 2025 Against PDCA</p>
       </div>
       <div class="trophy-card player">
-        <div class="player-image">
+        <div class="trophy-image">
           <img src="rsc/trophy.png">
         </div>
       </div>      
@@ -273,22 +292,19 @@
 
   <script>
     const players = [
-      { name: "Navi", role: "⚾🏏", type: "captain" },
-      { name: "H.Bajwa", role: "🏏⚾", type: "vice-captain" },
-      { name: "Aman", role: "🏏⚾", type: "player" },
-      { name: "Mani", role: "🏏⚾", type: "player" },
-      { name: "G.Dhindsa", role: "🏏⚾", type: "player" },
-      { name: "Rakesh", role: "🏏⚾", type: "player" },
-      { name: "Shagan", role: "🏏🧤", type: "wkt-keeper" },
-      { name: "Tarni", role: "⚾🏏", type: "player" },
+      { name: "J.Sarao", role: "🏏", type: "captain" },
+      { name: "Jeevan", role: "🏏", type: "player" },
+      { name: "G.S.Gurta", role: "🏏🧤", type: "wkt-keeper" },
+      { name: "Vicky", role: "⚾🏏", type: "player" },
+      { name: "Navi", role: "⚾🏏", type: "player" },
+      { name: "S.Jhinjer", role: "🏏", type: "player" },
       { name: "M.Sharma", role: "🏏", type: "player" },
-      { name: "Rajan", role: "🏏", type: "player" },
-      { name: "Ashu", role: "🏏⚾🧤", type: "wkt-keeper" },
-      { name: "Buta", role: "⚾", type: "player" },
-      { name: "Jumbo", role: "⚾", type: "player" },
-      { name: "Khushdeep", role: "⚾🏏", type: "player" },
-      { name: "Bhinder", role: "🏏⚾", type: "player" },
-      { name: "Sohi", role: "⚾", type: "player" }
+      { name: "H.Sharma", role: "🏏⚾", type: "player" },
+      { name: "Default", role: "🏏⚾", type: "vice-captain" },
+      { name: "Default", role: "🏏⚾", type: "player" },
+      { name: "Default", role: "🏏⚾", type: "player" },
+      { name: "Default", role: "🏏⚾", type: "player" },
+      { name: "Default", role: "⚾", type: "player" }
   ];
 
     function createPlayerCard(player) {
