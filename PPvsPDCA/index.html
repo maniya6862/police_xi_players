@@ -12,7 +12,7 @@
     }
     body {
       font-family: 'Arial', sans-serif;
-      background:url('rsc/bg.png') repeat center;
+      background:url('rsc/bg2.jpg') repeat center;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -51,7 +51,7 @@
     .team-name {
       font-size: 4rem;
       font-weight: 900;
-      color: black;
+      color: white;
       text-transform: uppercase;
       letter-spacing: 2px;
       margin-bottom: 10px;
@@ -60,7 +60,7 @@
 
     .tournament-info {
       font-size: 1.8rem;
-      color: black;
+      color: white;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -149,7 +149,7 @@
       height:300px;
       object-fit: cover;
       border-radius: 0%;
-      background: white;
+      background: grey;
     }
     .trophy-image img {
 	    width:300px;
@@ -162,7 +162,7 @@
       padding: 10px;
       font-size: 1.0rem;
       font-weight: 700;
-      color: black;
+      color: white;
       text-transform: uppercase;
       margin-bottom: 8px;
       letter-spacing: 0.5px;
@@ -186,7 +186,7 @@
       top: 10px;
       right: 10px;
       background: rgba(255, 255, 255, 0.2);
-      color: black;
+      color: white;
       padding: 4px 8px;
       border-radius: 12px;
       font-size: 0.7rem;
@@ -219,7 +219,7 @@
     }
 
     .logo-text {
-      color: black;
+      color: white;
       font-weight: 900;
       font-size: 1.2rem;
       text-align: center;
@@ -275,7 +275,10 @@
       <!--div>
         <h1 class="team-name">Police XI Blue - <p class="tournament-info">T20 Squad 2025</p></h1>
       </div-->
-
+      <div class="trophy-card player">
+        <div class="player-image">
+        </div>
+      </div>
       <div class="non-player-card player center">
         <h1 class="team-name non-player-card">Police XI</h1>
         <p class="tournament-info">T20 Squad 2025 Against PDCA</p>
@@ -292,17 +295,16 @@
 
   <script>
     const players = [
-      { name: "J.Sarao", role: "🏏", type: "captain" },
-      { name: "Jeevan", role: "🏏", type: "player" },
-      { name: "G.S.Gurta", role: "🏏🧤", type: "wkt-keeper" },
+      { name: "J.Sarao (C)", role: "🏏", type: "captain" },
+      { name: "G.S.Gurta (VC)", role: "🏏🧤", type: "vice-captain" },
       { name: "Vicky", role: "⚾🏏", type: "player" },
       { name: "Navi", role: "⚾🏏", type: "player" },
       { name: "S.Jhinjer", role: "🏏", type: "player" },
       { name: "M.Sharma", role: "🏏", type: "player" },
       { name: "H.Sharma", role: "🏏⚾", type: "player" },
-      { name: "Default", role: "🏏⚾", type: "vice-captain" },
-      { name: "Default", role: "🏏⚾", type: "player" },
-      { name: "Default", role: "🏏⚾", type: "player" },
+      { name: "Jeevan", role: "🏏", type: "player" },
+      { name: "Rakesh", role: "🏏⚾", type: "player" },
+      { name: "Bikramjeet", role: "🏏⚾", type: "player" },
       { name: "Default", role: "🏏⚾", type: "player" },
       { name: "Default", role: "⚾", type: "player" }
   ];
